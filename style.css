@@ -1,0 +1,264 @@
+/* Universal Reset and Font */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif; /* Using the included Google Font */
+    background-color: #f4f4f9; /* Light, cool background color */
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for Centering */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header and Search Box Styling */
+header {
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+header h1 {
+    color: #4CAF50; /* A fresh green color */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between input and button */
+}
+
+#searchInput {
+    padding: 12px;
+    width: 60%;
+    max-width: 400px;
+    border: 2px solid #ccc;
+    border-radius: 25px; /* Rounded input field */
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+#searchInput:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+#searchBtn {
+    padding: 12px 25px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.1s;
+}
+
+#searchBtn:hover {
+    background-color: #45a049;
+    transform: translateY(-1px); /* Slight lift on hover */
+}
+
+/* Recipe Results Layout */
+#recipeResults {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.initial-message {
+    grid-column: 1 / -1; /* Span across all columns */
+    text-align: center;
+    font-size: 1.2em;
+    color: #666;
+    padding: 50px 0;
+}
+
+/* Individual Recipe Card Styling */
+.recipe-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures image doesn't bleed out */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.recipe-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.recipe-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Ensures image fills the space nicely */
+}
+
+.card-content {
+    padding: 15px;
+}
+
+.card-content h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.card-content a {
+    display: inline-block;
+    background-color: #FF9800; /* A warm orange for the link */
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    transition: background-color 0.3s;
+}
+
+.card-content a:hover {
+    background-color: #e68900;
+}
+
+/* NEW: Header content wrapper for layout */
+.header-content {
+    display: flex;
+    justify-content: center; /* Center the whole group */
+    align-items: center;
+    gap: 15px; /* Space between title and toggle */
+    margin-bottom: 15px;
+}
+
+/* NEW: Theme Toggle Button Styling */
+#themeToggle {
+    background: none;
+    border: none;
+    font-size: 2em; /* Make the icon large */
+    cursor: pointer;
+    padding: 5px;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+/* --- Color Variables Definition --- */
+:root {
+    /* Light Theme Defaults */
+    --background-color: #f4f4f9;
+    --primary-text-color: #333;
+    --secondary-background: #ffffff;
+    --accent-color: #4CAF50;
+    --search-border-color: #ccc;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --initial-message-color: #666;
+    --link-color: #FF9800;
+}
+
+/* Dark Theme Overrides */
+body[data-theme="dark"] {
+    --background-color: #121212; /* Very dark background */
+    --primary-text-color: #e0e0e0; /* Light text */
+    --secondary-background: #1e1e1e; /* Darker background for elements */
+    --accent-color: #66BB6A; /* Slightly lighter green for dark mode contrast */
+    --search-border-color: #444;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    --initial-message-color: #999;
+    --link-color: #FFB74D; /* Lighter orange */
+}
+
+/* Apply Variables to Elements */
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color); /* Use variable */
+    color: var(--primary-text-color); /* Use variable */
+    line-height: 1.6;
+}
+
+/* ... (rest of the file) ... */
+
+/* Header and Search Box Styling */
+header {
+    background-color: var(--secondary-background); /* Use variable */
+    box-shadow: var(--card-shadow); /* Use variable */
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--accent-color); /* Use variable */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+#searchInput {
+    /* ... existing styles ... */
+    border: 2px solid var(--search-border-color); /* Use variable */
+    /* ... existing styles ... */
+}
+
+#searchInput:focus {
+    border-color: var(--accent-color); /* Use variable */
+    outline: none;
+}
+
+#searchBtn {
+    background-color: var(--accent-color); /* Use variable */
+    color: var(--primary-text-color); /* Button text can use primary text color */
+    /* ... existing styles ... */
+}
+
+#searchBtn:hover {
+    /* Slightly darker accent color for hover (manually adjust or define another variable) */
+    background-color: #45a049; 
+    transform: translateY(-1px);
+}
+
+.initial-message {
+    /* ... existing styles ... */
+    color: var(--initial-message-color); /* Use variable */
+    padding: 50px 0;
+}
+
+/* Individual Recipe Card Styling */
+.recipe-card {
+    background-color: var(--secondary-background); /* Use variable */
+    border-radius: 10px;
+    box-shadow: var(--card-shadow); /* Use variable */
+    /* ... existing styles ... */
+}
+
+.card-content h3 {
+    /* ... existing styles ... */
+    color: var(--primary-text-color); /* Use variable */
+}
+
+.card-content a {
+    background-color: var(--link-color); /* Use variable */
+    color: white; /* Keep white for high contrast */
+    /* ... existing styles ... */
+}
+
+.card-content a:hover {
+    /* Slightly darker link color for hover (manually adjust or define another variable) */
+    background-color: #e68900; 
+}
